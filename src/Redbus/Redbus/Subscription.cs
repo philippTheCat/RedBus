@@ -6,12 +6,22 @@ namespace Redbus
 {
     internal class Subscription<TEventBase> : ISubscription where TEventBase : EventBase
     {
-        public SubscriptionToken SubscriptionToken { get; }
+        public SubscriptionToken SubscriptionToken { get; private set; }
 
         public Subscription(Action<TEventBase> action, SubscriptionToken token)
         {
-            _action = action ?? throw new ArgumentNullException(nameof(action));
-            SubscriptionToken = token ?? throw new ArgumentNullException(nameof(token));
+            if (action == null)
+            {
+                throw new ArgumentNullException("action");
+            }
+
+            if (token == null)
+            {
+                throw new ArgumentNullException("token");
+            }
+            _action = action;
+
+            SubscriptionToken = token;
         }
 
         public void Publish(EventBase eventItem)

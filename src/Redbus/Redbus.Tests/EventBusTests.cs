@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Redbus.Events;
 
 namespace Redbus.Tests
 {
-    [TestClass]
+  /*  [TestClass]
     public class EventBusTests
     {
         private bool _methodHandlerHit;
@@ -127,5 +127,5 @@ namespace Redbus.Tests
     {
         public string Name { get; set; }
         public int Identifier { get; set; }
-    }
+    }*/
 }
